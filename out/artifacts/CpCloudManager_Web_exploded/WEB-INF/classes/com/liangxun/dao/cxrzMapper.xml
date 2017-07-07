@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liangxunwang.unimanager.dao.CxrzDao">
+    <resultMap id="cxrz" type="com.liangxunwang.unimanager.model.HappyHandCxrz">
+        <id column="cxrzid" property="cxrzid"/>
+        <result column="empid" property="empid"/>
+        <result column="starttime" property="starttime"/>
+        <result column="is_use" property="is_use"/>
+
+        <result column="nickname" property="nickname"/>
+        <result column="mobile" property="mobile"/>
+    </resultMap>
+
+
+    <select id="lists" resultMap="cxrz">
+        SELECT sn.* ,lemp.nickname as nickname,lemp.mobile as mobile
+        from happy_hand_cxrz sn
+        LEFT JOIN emp lemp ON lemp.empid = sn.empid
+        WHERE 1=1
+        <if test="empid != null and empid != ''">
+            AND sn.empid = #{empid}
+        </if>
+        ORDER  by sn.starttime DESC
+        limit #{index},#{size}
+    </select>
+
+    <select id="count" resultType="Long">
+        SELECT count(sn.cxrzid) FROM happy_hand_cxrz sn
+        WHERE 1=1
+        <if test="empid != null and empid != ''">
+            AND sn.empid = #{empid}
+        </if>
+    </select>
+
+
+    <insert id="save" parameterType="com.liangxunwang.unimanager.model.HappyHandCxrz">
+        INSERT INTO happy_hand_cxrz(cxrzid, empid, starttime, is_use)
+        VALUES (#{cxrzid}, #{empid}, #{starttime}, #{is_use})
+    </insert>
+
+    <update id="update" parameterType="com.liangxunwang.unimanager.model.HappyHandCxrz">
+        UPDATE happy_hand_cxrz SET is_use=#{is_use}  WHERE cxrzid=#{cxrzid}
+    </update>
+
+    <update id="updateByEmpId" parameterType="com.liangxunwang.unimanager.model.HappyHandCxrz">
+        UPDATE happy_hand_cxrz SET is_use=#{is_use}  WHERE empid=#{empid}
+    </update>
+
+</mapper>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liangxunwang.unimanager.dao.JiaowangDao">
+    <resultMap id="jiaowang" type="com.liangxunwang.unimanager.model.HappyHandJw">
+        <id column="jwid" property="jwid"/>
+        <result column="empid1" property="empid1"/>
+        <result column="empid2" property="empid2"/>
+        <result column="applytime" property="applytime"/>
+        <result column="accepttime" property="accepttime"/>
+        <result column="startime" property="startime"/>
+        <result column="endtime" property="endtime"/>
+        <result column="is_check" property="is_check"/>
+        <result column="is_use" property="is_use"/>
+
+        <result column="empid1Cover" property="empid1Cover"/>
+        <result column="empid1Nickname" property="empid1Nickname"/>
+        <result column="empid2Cover" property="empid2Cover"/>
+        <result column="empid2Nickname" property="empid2Nickname"/>
+    </resultMap>
+
+    <insert id="save" parameterType="com.liangxunwang.unimanager.model.HappyHandJw">
+        INSERT INTO happy_hand_jw(jwid, empid1, empid2, applytime, accepttime, startime, is_check)
+        VALUES (#{jwid}, #{empid1}, #{empid2}, #{applytime}, #{accepttime, jdbcType=VARCHAR}, #{startime, jdbcType=VARCHAR}, #{is_check})
+    </insert>
+
+    <select id="findById" parameterType="String" resultMap="jiaowang">
+        SELECT sn.*,
+        lemp1.cover as empid1Cover,
+        lemp1.nickname as empid1Nickname,
+        lemp2.cover as empid2Cover,
+        lemp2.nickname as empid2Nickname
+         FROM happy_hand_jw sn
+         LEFT JOIN emp lemp1 ON lemp1.empid = sn.empid1
+         LEFT JOIN emp lemp2 ON lemp2.empid = sn.empid2
+         where sn.jwid=#{jwid}
+    </select>
+
+    <update id="update" parameterType="String">
+        UPDATE happy_hand_jw SET accepttime=#{accepttime, jdbcType=VARCHAR}, startime=#{startime, jdbcType=VARCHAR}, is_check=#{is_check} WHERE jwid=#{jwid}
+    </update>
+
+    <select id="lists" resultMap="jiaowang">
+        SELECT sn.*,
+        lemp1.cover as empid1Cover,
+        lemp1.nickname as empid1Nickname,
+        lemp2.cover as empid2Cover,
+        lemp2.nickname as empid2Nickname
+        FROM happy_hand_jw sn
+        LEFT JOIN emp lemp1 ON lemp1.empid = sn.empid1
+        LEFT JOIN emp lemp2 ON lemp2.empid = sn.empid2
+        where 1 = 1
+        <if test="empid1 != null and empid1 != ''">
+            AND sn.empid1 = #{empid1}
+        </if>
+        <if test="empid2 != null and empid2 != ''">
+            AND sn.empid2 = #{empid2}
+        </if>
+        <if test="is_check != null and is_check != ''">
+            AND sn.is_check = #{is_check}
+        </if>
+        ORDER BY applytime DESC
+    </select>
+
+    <select id="count" resultType="Long">
+        SELECT count(sn.jwid) FROM happy_hand_jw sn
+        WHERE 1=1
+        <if test="empid1 != null and empid1 != ''">
+            AND sn.empid1 = #{empid1}
+        </if>
+        <if test="empid2 != null and empid2 != ''">
+            AND sn.empid2 = #{empid2}
+        </if>
+        <if test="is_check != null and is_check != ''">
+            AND sn.is_check = #{is_check}
+        </if>
+    </select>
+
+    <delete id="delete" parameterType="com.liangxunwang.unimanager.model.HappyHandJw">
+        DELETE FROM happy_hand_jw where empid1 = #{empid1} AND empid2 = #{empid2}
+    </delete>
+
+    <update id="updateOther" parameterType="String">
+        UPDATE happy_hand_jw SET is_check=#{is_check} WHERE empid1=#{empid1} AND empid2=#{empid2}
+    </update>
+
+    <delete id="deleteById" parameterType="com.liangxunwang.unimanager.model.HappyHandJw">
+        DELETE FROM happy_hand_jw where jwid = #{jwid}
+    </delete>
+</mapper>
