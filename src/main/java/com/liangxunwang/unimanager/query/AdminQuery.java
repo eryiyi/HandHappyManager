@@ -7,7 +7,6 @@ public class AdminQuery{
     private int index;
     private int size;
     private String is_use;
-
     public String getIs_use() {
         return is_use;
     }

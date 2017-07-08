@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CpCloudManager.iml" filepath="$PROJECT_DIR$/CpCloudManager.iml" />
-
+      <module fileurl="file://$PROJECT_DIR$/HandHappyManager.iml" filepath="$PROJECT_DIR$/HandHappyManager.iml" />
     </modules>
   </component>
 </project>

@@ -22,11 +22,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="CpCloudManager" />
+        <module name="HandHappyManager" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="CpCloudManager" target="1.8" />
+      <module name="HandHappyManager" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
