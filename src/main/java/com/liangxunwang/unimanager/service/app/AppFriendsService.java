@@ -213,7 +213,9 @@ public class AppFriendsService implements SaveService,ListService,UpdateService,
         map2.put("is_check", "1" );
         List<Friends> list12 = friendsDao.lists(map2);
         if(list12 != null && list12.size() > 0){
-            throw new ServiceException("hasFriends");//已经是好友了
+            friendsDao.deleteById(friends);
+            return 200;
+//            throw new ServiceException("hasFriends");//已经是好友了
         }
 
         friends.setAccepttime(System.currentTimeMillis()+"");
