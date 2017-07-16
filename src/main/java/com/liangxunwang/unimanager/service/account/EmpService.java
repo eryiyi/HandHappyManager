@@ -69,6 +69,9 @@ public class EmpService implements ExecuteService,ListService,FindService,Update
         if(!StringUtil.isNullOrEmpty(query.getKeywords())){
             map.put("keywords", query.getKeywords());
         }
+        if(!StringUtil.isNullOrEmpty(query.getCompany())){
+            map.put("company", query.getCompany());
+        }
         List<Emp> lists = empDao.lists(map);
         if(lists != null){
             for(Emp member:lists){

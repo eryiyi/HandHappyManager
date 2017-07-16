@@ -16,7 +16,16 @@ public class EmpQuery {
     private String rzstate3;
     private String empid;
     private String keywords;
+    private String company;
     private String is_select;//是否选项到期一个月以上的认证会员 0否 1是
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
 
     public String getIs_select() {
         return is_select;

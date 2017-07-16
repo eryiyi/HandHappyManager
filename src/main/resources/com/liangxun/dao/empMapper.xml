@@ -96,6 +96,9 @@
         <if test="keywords != null and keywords != ''">
             AND (sn.mobile like CONCAT('%',#{keywords},'%')  OR  sn.nickname like CONCAT('%',#{keywords},'%') )
         </if>
+        <if test="company != null and company != ''">
+            AND sn.company like CONCAT('%',#{company},'%')
+        </if>
         ORDER  by sn.dateline DESC
         limit #{index},#{size}
     </select>
@@ -129,6 +132,9 @@
         </if>
         <if test="keywords != null and keywords != ''">
             AND (sn.mobile like CONCAT('%',#{keywords},'%')  OR  sn.nickname like CONCAT('%',#{keywords},'%') )
+        </if>
+        <if test="company != null and company != ''">
+            AND sn.company like CONCAT('%',#{company},'%')
         </if>
     </select>
 
