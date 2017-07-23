@@ -104,16 +104,24 @@ public class AppEmpUpdateCard implements UpdateService  ,ExecuteService ,FindSer
             HappyHandMessage happyHandMessage = new HappyHandMessage();
             happyHandMessage.setMsgid(UUIDFactory.random());
             happyHandMessage.setDateline(System.currentTimeMillis() + "");
-            happyHandMessage.setTitle("恭喜你认证成功！可以免费体验一个月哦，快来体验吧！真心期待您成为我们的会员，我们会努力做得更好！\n" +
+            happyHandMessage.setTitle("恭喜你认证成功，快来体验吧！真心欢迎您成为我们的会员，我们会努力做得更好！\n" +
                     "温馨提示：你浏览和交流的会员，均是其工作单位推荐。会员身份如有虚假，请随时向我们投诉和反馈。我们会与该会员工作单位沟通、核实，如确实违反服务条款，幸福牵手吧有权暂停或终止该会员的帐号，暂停或终止提供幸福牵手吧提供的全部或部分服务。请幸福牵手吧会员，遵守服务条款，真诚交友。让我们一起携手，共建一个真实、安全的婚恋交友环境！\n" +
                     "推荐并欢迎加入沈阳用户交流群。快去找寻真爱吧，祝你早日找到幸福！");
+
+//            happyHandMessage.setTitle("恭喜你认证成功！可以免费体验一个月哦，快来体验吧！真心期待您成为我们的会员，我们会努力做得更好！\n" +
+//                    "温馨提示：你浏览和交流的会员，均是其工作单位推荐。会员身份如有虚假，请随时向我们投诉和反馈。我们会与该会员工作单位沟通、核实，如确实违反服务条款，幸福牵手吧有权暂停或终止该会员的帐号，暂停或终止提供幸福牵手吧提供的全部或部分服务。请幸福牵手吧会员，遵守服务条款，真诚交友。让我们一起携手，共建一个真实、安全的婚恋交友环境！\n" +
+//                    "推荐并欢迎加入沈阳用户交流群。快去找寻真爱吧，祝你早日找到幸福！");
             happyHandMessage.setEmpid(emp.getEmpid());
             messagesDao.save(happyHandMessage);
 
             if(!StringUtil.isNullOrEmpty(emp1.getChannelId())){
-                BaiduPush.PushMsgToSingleDevice(Integer.parseInt(emp1.getDeviceType()), "系统消息", "恭喜你认证成功！可以免费体验一个月哦，快来体验吧！真心期待您成为我们的会员，我们会努力做得更好！" +
+                BaiduPush.PushMsgToSingleDevice(Integer.parseInt(emp1.getDeviceType()), "系统消息", "恭喜你认证成功，快来体验吧！真心欢迎您成为我们的会员，我们会努力做得更好！" +
                         "温馨提示：你浏览和交流的会员，均是其工作单位推荐。会员身份如有虚假，请随时向我们投诉和反馈。我们会与该会员工作单位沟通、核实，如确实违反服务条款，幸福牵手吧有权暂停或终止该会员的帐号，暂停或终止提供幸福牵手吧提供的全部或部分服务。请幸福牵手吧会员，遵守服务条款，真诚交友。让我们一起携手，共建一个真实、安全的婚恋交友环境！" +
                         "推荐并欢迎加入沈阳用户交流群。快去找寻真爱吧，祝你早日找到幸福！", "1", emp1.getChannelId());
+
+//                BaiduPush.PushMsgToSingleDevice(Integer.parseInt(emp1.getDeviceType()), "系统消息", "恭喜你认证成功！可以免费体验一个月哦，快来体验吧！真心期待您成为我们的会员，我们会努力做得更好！" +
+//                        "温馨提示：你浏览和交流的会员，均是其工作单位推荐。会员身份如有虚假，请随时向我们投诉和反馈。我们会与该会员工作单位沟通、核实，如确实违反服务条款，幸福牵手吧有权暂停或终止该会员的帐号，暂停或终止提供幸福牵手吧提供的全部或部分服务。请幸福牵手吧会员，遵守服务条款，真诚交友。让我们一起携手，共建一个真实、安全的婚恋交友环境！" +
+//                        "推荐并欢迎加入沈阳用户交流群。快去找寻真爱吧，祝你早日找到幸福！", "1", emp1.getChannelId());
             }
 
             //加群

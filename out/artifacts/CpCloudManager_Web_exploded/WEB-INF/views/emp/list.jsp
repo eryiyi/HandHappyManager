@@ -44,6 +44,12 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <div class="col-sm-4">
+                            <input class="form-control" id="company" value="${query.company}" type="text"
+                                   placeholder="公司名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <select class="form-control" id="is_use">
                             <option value="">--选择会员状态--</option>
                             <option value="0" ${query.is_use=='0'?'selected':''}>启用</option>
@@ -135,6 +141,7 @@
                         <th>身份认证</th>
                         <th>会员认证</th>
                         <th>诚信认证</th>
+                        <th>公司</th>
                         <th>注册日期</th>
                         <th>是否使用</th>
                         <th>操作</th>
@@ -185,6 +192,7 @@
                                 <c:if test="${e.rzstate3=='0'}">未认证</c:if>
                                 <c:if test="${e.rzstate3=='1'}">已认证</c:if>
                             </td>
+                            <td>${e.company}</td>
                             <td>${um:format(e.dateline, 'yy-MM-dd HH:mm')}</td>
                             <td>
                                 <c:if test="${e.is_use=='0'}">禁用</c:if>
@@ -263,6 +271,7 @@
         var rzstate1 = $("#rzstate1").val();
         var rzstate2 = $("#rzstate2").val();
         var rzstate3 = $("#rzstate3").val();
+        var company = $("#company").val();
         if (_index <= ${page.pageCount} && _index >= 1) {
             window.location.href = "#module=/emp/list&page=" + _index
             + "&size=" + size
@@ -275,6 +284,7 @@
             + "&rzstate2=" + rzstate2
             + "&rzstate3=" + rzstate3
             + "&keywords=" + keywords
+            + "&company=" + company
             + "&_t=" + new Date().getTime();
         } else {
             alert("请输入1-${page.pageCount}的页码数");
@@ -292,6 +302,7 @@
         var rzstate2 = $("#rzstate2").val();
         var rzstate3 = $("#rzstate3").val();
         var keywords = $("#keywords").val();
+        var company = $("#company").val();
         addCookie("contract_size", size, 36);
         if ((page <= ${page.pageCount} && page >= 1)) {
             window.location.href = "#module=/emp/list&page=" + page
@@ -305,6 +316,7 @@
             + "&rzstate2=" + rzstate2
             + "&rzstate3=" + rzstate3
             + "&keywords=" + keywords
+            + "&company=" + company
             + "&_t=" + new Date().getTime();
         } else {
             alert("请输入1-${page.pageCount}的页码数");
@@ -323,6 +335,7 @@
         var rzstate2 = $("#rzstate2").val();
         var rzstate3 = $("#rzstate3").val();
         var keywords = $("#keywords").val();
+        var company = $("#company").val();
         addCookie("contract_size", size, 36);
         if ((page <= ${page.pageCount} && page >= 1)) {
             window.location.href = "#module=/emp/list&page=" + page
@@ -336,6 +349,7 @@
             + "&rzstate2=" + rzstate2
             + "&rzstate3=" + rzstate3
             + "&keywords=" + keywords
+            + "&company=" + company
             + "&_t=" + new Date().getTime();
         } else {
             alert("请输入1-${page.pageCount}的页码数");
