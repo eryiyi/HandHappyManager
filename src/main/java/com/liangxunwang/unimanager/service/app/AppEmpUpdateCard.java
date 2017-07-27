@@ -48,6 +48,8 @@ public class AppEmpUpdateCard implements UpdateService  ,ExecuteService ,FindSer
         if(emp == null){
             throw new ServiceException("null");
         }
+        empDao.updateCard(emp.getEmpid(), emp.getCardpic());
+
         //先根据用户昵称和手机号查询该用户是否和库里的一致
         EmpKu empKu = empKuDao.findByMobile(emp.getMobile());
         if(empKu != null){
@@ -62,8 +64,6 @@ public class AppEmpUpdateCard implements UpdateService  ,ExecuteService ,FindSer
         if(emp1 == null){
             throw new ServiceException("null");
         }
-        empDao.updateCard(emp.getEmpid(), emp.getCardpic());
-
 
         //------------更新会员到期日期和会员认证状态------------------
         if("0".equals(emp1.getRzstate2())){
@@ -80,7 +80,7 @@ public class AppEmpUpdateCard implements UpdateService  ,ExecuteService ,FindSer
                 //说明数据库有认证的数据  更新
                 HappyHandHyrz happyHandHyrz =lists1.get(0);
                 //todo
-                Object[] ob = DateUtil.getDayInterval(System.currentTimeMillis(), -1);//默认设置一天  正式上线改成30天
+                Object[] ob = DateUtil.getDayInterval(System.currentTimeMillis(), -30);//默认设置一天  正式上线改成30天
                 long endtime = (long) ob[0];
                 happyHandHyrz.setEndtime(String.valueOf(endtime));
                 happyHandHyrz.setIs_use("1");
@@ -89,7 +89,7 @@ public class AppEmpUpdateCard implements UpdateService  ,ExecuteService ,FindSer
                 //添加会员认证数据
                 HappyHandHyrz happyHandHyrz = new HappyHandHyrz();
                 //todo
-                Object[] ob = DateUtil.getDayInterval(System.currentTimeMillis(), -1);//默认设置一天  正式上线改成30天
+                Object[] ob = DateUtil.getDayInterval(System.currentTimeMillis(), -30);//默认设置一天  正式上线改成30天
                 long endtime = (long) ob[0];
                 happyHandHyrz.setEndtime(String.valueOf(endtime));
                 happyHandHyrz.setIs_use("1");

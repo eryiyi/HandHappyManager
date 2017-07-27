@@ -43,7 +43,7 @@ public class EmpHyrzService implements ListService {
             if("1".equals(query.getIs_select())){
                 //到期一个月以上的会员认证
 //                当前日期减去30天的毫秒值 大于到期日期
-                Object[] ob = DateUtil.getDayInterval(System.currentTimeMillis(), 3);//默认设置一天  正式上线改成30
+                Object[] ob = DateUtil.getDayInterval(System.currentTimeMillis(), 30);//默认设置3天  正式上线改成30
                 long endtime = (long) ob[0];
                 map.put("endtime", String.valueOf(endtime));
             }

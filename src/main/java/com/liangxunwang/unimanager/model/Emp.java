@@ -37,6 +37,9 @@ public class Emp
 
     private String deviceType;
     private String is_push;//是否允许推送 默认0是 1否
+    private String cardnum;//医保卡号
+    private String tjperson;//推荐人
+    private String tjmobile;//推荐人手机号码
 
     //择偶要求
     private String chooseid;
@@ -52,6 +55,31 @@ public class Emp
     private String pname;
     private String cityName;
     private String is_manager;//是否是管理员 0否 1是  默认否
+
+
+    public String getCardnum() {
+        return cardnum;
+    }
+
+    public void setCardnum(String cardnum) {
+        this.cardnum = cardnum;
+    }
+
+    public String getTjperson() {
+        return tjperson;
+    }
+
+    public void setTjperson(String tjperson) {
+        this.tjperson = tjperson;
+    }
+
+    public String getTjmobile() {
+        return tjmobile;
+    }
+
+    public void setTjmobile(String tjmobile) {
+        this.tjmobile = tjmobile;
+    }
 
     public String getIs_manager() {
         return is_manager;

@@ -121,7 +121,7 @@ public class AppOrderMakeService implements SaveService,UpdateService,FindServic
                         {
                             //说明数据库有认证的数据  更新
                             HappyHandHyrz happyHandHyrz =lists.get(0);
-                            Object[] ob = DateUtil.getDayInterval(System.currentTimeMillis(), -1);
+                            Object[] ob = DateUtil.getDayInterval(System.currentTimeMillis(), -365);
                             long endtime = (long) ob[0];
                             happyHandHyrz.setEndtime(String.valueOf(endtime));
 
@@ -130,7 +130,7 @@ public class AppOrderMakeService implements SaveService,UpdateService,FindServic
                         }else{
                             //添加会员认证数据
                             HappyHandHyrz happyHandHyrz = new HappyHandHyrz();
-                            Object[] ob = DateUtil.getDayInterval(System.currentTimeMillis(), -1);
+                            Object[] ob = DateUtil.getDayInterval(System.currentTimeMillis(), -365);
                             long endtime = (long) ob[0];
                             happyHandHyrz.setEndtime(String.valueOf(endtime));
 

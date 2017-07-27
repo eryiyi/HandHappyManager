@@ -260,6 +260,10 @@ public class AppEmpController extends ControllerConstants {
     @Autowired
     @Qualifier("appEmpUpdateCard")
     private UpdateService appEmpUpdateCard;
+
+    @Autowired
+    @Qualifier("appEmpUpdateCardBf")
+    private UpdateService appEmpUpdateCardBfUpdate;
     //更新用户身份证
     @RequestMapping(value = "/appUpdateCard", produces = "text/plain;charset=UTF-8")
     @ResponseBody
@@ -285,6 +289,7 @@ public class AppEmpController extends ControllerConstants {
             tip.setData(SUCCESS);
             return toJSONString(tip);
         }catch (Exception e){
+            appEmpUpdateCardBfUpdate.update(emp);//不论成功还是失败，记住他的身份证
             String msg = e.getMessage();
             if(!StringUtil.isNullOrEmpty(msg)){
                 if ("null".equals(msg)){

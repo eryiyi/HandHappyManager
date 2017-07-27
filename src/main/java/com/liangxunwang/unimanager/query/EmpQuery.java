@@ -17,7 +17,25 @@ public class EmpQuery {
     private String empid;
     private String keywords;
     private String company;
+    private String tjperson;
+    private String tjmobile;
     private String is_select;//是否选项到期一个月以上的认证会员 0否 1是
+
+    public String getTjperson() {
+        return tjperson;
+    }
+
+    public void setTjperson(String tjperson) {
+        this.tjperson = tjperson;
+    }
+
+    public String getTjmobile() {
+        return tjmobile;
+    }
+
+    public void setTjmobile(String tjmobile) {
+        this.tjmobile = tjmobile;
+    }
 
     public String getCompany() {
         return company;

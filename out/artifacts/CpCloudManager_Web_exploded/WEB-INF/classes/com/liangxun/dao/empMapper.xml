@@ -31,6 +31,9 @@
         <result column="channelId" property="channelId"/>
         <result column="deviceType" property="deviceType"/>
         <result column="is_push" property="is_push"/>
+        <result column="cardnum" property="cardnum"/>
+        <result column="tjperson" property="tjperson"/>
+        <result column="tjmobile" property="tjmobile"/>
 
         <result column="chooseid" property="chooseid"/>
         <result column="agestart" property="agestart"/>
@@ -99,6 +102,13 @@
         <if test="company != null and company != ''">
             AND sn.company like CONCAT('%',#{company},'%')
         </if>
+        <if test="tjperson != null and tjperson != ''">
+            AND (sn.tjperson like CONCAT('%',#{tjperson},'%') )
+        </if>
+        <if test="tjmobile != null and tjmobile != ''">
+            AND (sn.tjmobile like CONCAT('%',#{tjmobile},'%') )
+        </if>
+
         ORDER  by sn.dateline DESC
         limit #{index},#{size}
     </select>
@@ -136,6 +146,13 @@
         <if test="company != null and company != ''">
             AND sn.company like CONCAT('%',#{company},'%')
         </if>
+        <if test="tjperson != null and tjperson != ''">
+            AND (sn.tjperson like CONCAT('%',#{tjperson},'%') )
+        </if>
+        <if test="tjmobile != null and tjmobile != ''">
+            AND (sn.tjmobile like CONCAT('%',#{tjmobile},'%') )
+        </if>
+
     </select>
 
 
@@ -207,6 +224,9 @@
         company=#{company},
         likeids=#{likeids},
         state=#{state},
+        cardnum=#{cardnum,jdbcType=VARCHAR},
+        tjperson=#{tjperson,jdbcType=VARCHAR},
+        tjmobile=#{tjmobile,jdbcType=VARCHAR},
         is_use = '1'
         WHERE empid=#{empid}
     </update>
@@ -228,6 +248,7 @@
         rzstate1=#{rzstate1},
         rzstate2=#{rzstate2},
         rzstate3=#{rzstate3},
+        cardnum=#{cardnum,jdbcType=VARCHAR},
         is_use = #{is_use}
         WHERE empid=#{empid}
     </update>

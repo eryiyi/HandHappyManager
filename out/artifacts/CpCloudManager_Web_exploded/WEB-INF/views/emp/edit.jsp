@@ -99,6 +99,33 @@
                                    title="Tooltip for name">
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">医保卡号</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="cardnum" class="form-control" value="${emp.cardnum}"
+                                   data-toggle="tooltip" data-placement="bottom"
+                                   title="Tooltip for name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">推荐人</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="tjperson" class="form-control" value="${emp.tjperson}" readonly="true"
+                                   data-toggle="tooltip" data-placement="bottom"
+                                   title="Tooltip for name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">推荐人手机号</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="tjmobile" class="form-control" value="${emp.tjmobile}" readonly="true"
+                                   data-toggle="tooltip" data-placement="bottom"
+                                   title="Tooltip for name">
+                        </div>
+                    </div>
+
+
                     <div class="form-group">
                         <label class="col-sm-2 control-label">个性签名</label>
 
@@ -294,6 +321,7 @@
         var provinceid = $("#provinceid").val();
         var cityid = $("#cityid").val();
         var is_use = $("#is_use").val();
+        var cardnum = $("#cardnum").val();
 
         if (nickname.replace(/\s/g, '') == '') {
             alert("姓名不能为空");
@@ -405,6 +433,7 @@
                 "rzstate1": rzstate1,
                 "rzstate2": rzstate2,
                 "rzstate3": rzstate3,
+                "cardnum": cardnum,
                 "is_use": is_use
             },
             async: false,

@@ -50,6 +50,19 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <div class="col-sm-4">
+                            <input class="form-control" id="tjperson" value="${query.tjperson}" type="text"
+                                   placeholder="推荐人">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">
+                            <input class="form-control" id="tjmobile" value="${query.tjmobile}" type="text"
+                                   placeholder="推荐人手机号">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <select class="form-control" id="is_use">
                             <option value="">--选择会员状态--</option>
                             <option value="0" ${query.is_use=='0'?'selected':''}>启用</option>
@@ -142,6 +155,9 @@
                         <th>会员认证</th>
                         <th>诚信认证</th>
                         <th>公司</th>
+                        <th>医保卡号</th>
+                        <th>推荐人</th>
+                        <th>推荐人手机号</th>
                         <th>注册日期</th>
                         <th>是否使用</th>
                         <th>操作</th>
@@ -193,6 +209,9 @@
                                 <c:if test="${e.rzstate3=='1'}">已认证</c:if>
                             </td>
                             <td>${e.company}</td>
+                            <td>${e.cardnum}</td>
+                            <td>${e.tjperson}</td>
+                            <td>${e.tjmobile}</td>
                             <td>${um:format(e.dateline, 'yy-MM-dd HH:mm')}</td>
                             <td>
                                 <c:if test="${e.is_use=='0'}">禁用</c:if>
@@ -272,6 +291,8 @@
         var rzstate2 = $("#rzstate2").val();
         var rzstate3 = $("#rzstate3").val();
         var company = $("#company").val();
+        var tjperson = $("#tjperson").val();
+        var tjmobile = $("#tjmobile").val();
         if (_index <= ${page.pageCount} && _index >= 1) {
             window.location.href = "#module=/emp/list&page=" + _index
             + "&size=" + size
@@ -285,6 +306,8 @@
             + "&rzstate3=" + rzstate3
             + "&keywords=" + keywords
             + "&company=" + company
+            + "&tjperson=" + tjperson
+            + "&tjmobile=" + tjmobile
             + "&_t=" + new Date().getTime();
         } else {
             alert("请输入1-${page.pageCount}的页码数");
@@ -303,6 +326,8 @@
         var rzstate3 = $("#rzstate3").val();
         var keywords = $("#keywords").val();
         var company = $("#company").val();
+        var tjperson = $("#tjperson").val();
+        var tjmobile = $("#tjmobile").val();
         addCookie("contract_size", size, 36);
         if ((page <= ${page.pageCount} && page >= 1)) {
             window.location.href = "#module=/emp/list&page=" + page
@@ -317,6 +342,8 @@
             + "&rzstate3=" + rzstate3
             + "&keywords=" + keywords
             + "&company=" + company
+            + "&tjperson=" + tjperson
+            + "&tjmobile=" + tjmobile
             + "&_t=" + new Date().getTime();
         } else {
             alert("请输入1-${page.pageCount}的页码数");
@@ -336,6 +363,8 @@
         var rzstate3 = $("#rzstate3").val();
         var keywords = $("#keywords").val();
         var company = $("#company").val();
+        var tjperson = $("#tjperson").val();
+        var tjmobile = $("#tjmobile").val();
         addCookie("contract_size", size, 36);
         if ((page <= ${page.pageCount} && page >= 1)) {
             window.location.href = "#module=/emp/list&page=" + page
@@ -350,6 +379,8 @@
             + "&rzstate3=" + rzstate3
             + "&keywords=" + keywords
             + "&company=" + company
+            + "&tjperson=" + tjperson
+            + "&tjmobile=" + tjmobile
             + "&_t=" + new Date().getTime();
         } else {
             alert("请输入1-${page.pageCount}的页码数");
