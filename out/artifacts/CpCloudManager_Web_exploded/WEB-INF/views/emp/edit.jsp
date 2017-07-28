@@ -69,11 +69,19 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">身份证</label>
 
-                        <div class="col-sm-10 col-md-2">
+                        <div class="col-sm-10 col-md-2" id="cardsfz">
                             <img class="img-thumbnail" name="imagePath1" id="imageDiv1" style="cursor: pointer"
                                  src="${emp.cardpic}"/>
                         </div>
+                        <div id="show" style="display: none;">
+                            <div id="photo" style="height: 620px;">
+                                <img style="height: 620px"/>
+                            </div>
+                            <div id="info"></div>
+                        </div>
+
                     </div>
+
                     <div class="form-group">
                         <label class="col-sm-2 control-label"></label>
                         <div class="col-sm-10">
@@ -296,7 +304,13 @@
                             </button>
                         </div>
                     </div>
+
+
+
                 </form>
+
+
+
             </div>
         </div>
     </div>
@@ -527,3 +541,59 @@
 </script>
 
 
+<script type="text/javascript">
+    $(document).ready(function(){
+        //找到li下所有img的值,单击图片事件
+        $("#cardsfz").click(function(){
+            $("#show").fadeIn(300);  //显示图片效果
+            //设置显示放大后的图片位置
+            document.getElementById("show").style.left=$(window).width()/2;
+            document.getElementById("show").style.top=$(window).height()/2;
+            //获得图片路径
+            var photo_url=$(this).find("img").attr("src");
+            //设置图片路径
+            $("#photo").find("img").attr("src",photo_url);
+            //单击放大后的图片消失
+            $("#photo").click(function(){
+                $("#show").fadeOut(300); //图片消失效果
+            });
+        });
+    });
+</script>
+
+
+
+<style type="text/css">
+    li{
+        width:380px;
+        float:left;
+        list-style: none;
+    }
+    ul li img{
+        width:240px;
+        border:1px solid red;
+        cursor: pointer;
+    }
+    #show{
+        position: absolute;
+        width:426px;
+        height:293px;
+        z-index: 200;
+    }
+    #info{
+        position: absolute;
+        top:300px;
+        left:10px;
+        margin-left: 28px;
+        padding: 5px;
+        width:416px;
+        height: 45px;
+    }
+    #photo{
+        position: absolute;
+        top:-360px;
+        left:220px;
+        border:3px solid red;
+        cursor: pointer;
+    }
+</style>
