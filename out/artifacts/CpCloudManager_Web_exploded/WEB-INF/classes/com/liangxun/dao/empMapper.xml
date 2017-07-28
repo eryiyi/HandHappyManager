@@ -264,6 +264,9 @@
     <update id="updateCard" parameterType="String">
         UPDATE emp SET cardpic=#{cardpic},rzstate1='1' WHERE empid=#{empid}
     </update>
+    <update id="updateCardOnly" parameterType="String">
+        UPDATE emp SET cardpic=#{cardpic}  WHERE empid=#{empid}
+    </update>
 
     <update id="updateRzstate2" parameterType="String">
         UPDATE emp SET rzstate2=#{rzstate2} WHERE empid=#{empid}

@@ -77,25 +77,6 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" id="education">
-                            <option value="">--选择受教育程度--</option>
-                            <option value="1" ${query.education=='1'?'selected':''}>不限</option>
-                            <option value="2" ${query.education=='2'?'selected':''}>专科以下</option>
-                            <option value="3" ${query.education=='3'?'selected':''}>专科</option>
-                            <option value="4" ${query.education=='4'?'selected':''}>本科</option>
-                            <option value="5" ${query.education=='5'?'selected':''}>研究生及以上</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control" id="marriage">
-                            <option value="">--选择婚姻状况--</option>
-                            <option value="0" ${query.marriage=='0'?'selected':''}>不限</option>
-                            <option value="1" ${query.marriage=='1'?'selected':''}>单身</option>
-                            <option value="2" ${query.marriage=='2'?'selected':''}>离异</option>
-                            <option value="3" ${query.marriage=='3'?'selected':''}>丧偶</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
                         <select class="form-control" id="state">
                             <option value="">--选择状态--</option>
                             <option value="1" ${query.state=='1'?'selected':''}>单身</option>
@@ -283,8 +264,6 @@
         var size = getCookie("contract_size");
         var is_use = $("#is_use").val();
         var sex = $("#sex").val();
-        var education = $("#education").val();
-        var marriage = $("#marriage").val();
         var state = $("#state").val();
         var keywords = $("#keywords").val();
         var rzstate1 = $("#rzstate1").val();
@@ -298,8 +277,6 @@
             + "&size=" + size
             + "&is_use=" + is_use
             + "&sex=" + sex
-            + "&education=" + education
-            + "&marriage=" + marriage
             + "&state=" + state
             + "&rzstate1=" + rzstate1
             + "&rzstate2=" + rzstate2
@@ -318,8 +295,6 @@
         var size = $("#size").val();
         var is_use = $("#is_use").val();
         var sex = $("#sex").val();
-        var education = $("#education").val();
-        var marriage = $("#marriage").val();
         var state = $("#state").val();
         var rzstate1 = $("#rzstate1").val();
         var rzstate2 = $("#rzstate2").val();
@@ -334,8 +309,6 @@
             + "&size=" + size
             + "&is_use=" + is_use
             + "&sex=" + sex
-            + "&education=" + education
-            + "&marriage=" + marriage
             + "&state=" + state
             + "&rzstate1=" + rzstate1
             + "&rzstate2=" + rzstate2
@@ -355,8 +328,6 @@
         var size = $("#size").val();
         var is_use = $("#is_use").val();
         var sex = $("#sex").val();
-        var education = $("#education").val();
-        var marriage = $("#marriage").val();
         var state = $("#state").val();
         var rzstate1 = $("#rzstate1").val();
         var rzstate2 = $("#rzstate2").val();
@@ -371,8 +342,6 @@
             + "&size=" + size
             + "&is_use=" + is_use
             + "&sex=" + sex
-            + "&education=" + education
-            + "&marriage=" + marriage
             + "&state=" + state
             + "&rzstate1=" + rzstate1
             + "&rzstate2=" + rzstate2
@@ -386,7 +355,6 @@
             alert("请输入1-${page.pageCount}的页码数");
         }
     }
-
 
     function P_daoru_Select() {
         window.location.href = "#module=/data/toAddEmp";

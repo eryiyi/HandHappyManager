@@ -23,7 +23,7 @@ public class AppEmpUpdateCardBf implements UpdateService  {
         if(emp == null){
             throw new ServiceException("null");
         }
-        empDao.updateCard(emp.getEmpid(), emp.getCardpic());
+        empDao.updateCardOnly(emp.getEmpid(), emp.getCardpic());
         return 200;
     }
 
