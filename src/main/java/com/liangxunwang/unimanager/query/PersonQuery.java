@@ -13,6 +13,24 @@ public class PersonQuery {
     private String marragieID;
     private String likeids;
     private String sex;
+    private String provinceid;
+    private String cityid;
+
+    public String getProvinceid() {
+        return provinceid;
+    }
+
+    public void setProvinceid(String provinceid) {
+        this.provinceid = provinceid;
+    }
+
+    public String getCityid() {
+        return cityid;
+    }
+
+    public void setCityid(String cityid) {
+        this.cityid = cityid;
+    }
 
     public String getSex() {
         return sex;

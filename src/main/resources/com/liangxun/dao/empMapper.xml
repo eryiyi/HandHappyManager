@@ -247,6 +247,7 @@
         sex=#{sex},
         rzstate1=#{rzstate1},
         rzstate2=#{rzstate2},
+        rzstate2=#{rzstate2},
         rzstate3=#{rzstate3},
         cardnum=#{cardnum,jdbcType=VARCHAR},
         is_use = #{is_use}
@@ -459,6 +460,15 @@
         <if test="keywords != null and keywords != ''">
             AND sn.mobile = #{keywords}
         </if>
+
+        <if test="provinceid != null and provinceid != ''">
+            AND sn.provinceid = #{provinceid}
+        </if>
+
+        <if test="cityid != null and cityid != ''">
+            AND sn.cityid = #{cityid}
+        </if>
+
         ORDER  by sn.dateline DESC
         limit #{index},#{size}
     </select>

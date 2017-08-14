@@ -74,8 +74,8 @@
                                  src="${emp.cardpic}"/>
                         </div>
                         <div id="show" style="display: none;">
-                            <div id="photo" style="height: 620px;">
-                                <img style="height: 620px"/>
+                            <div id="photo" style="height: 400px;">
+                                <img style="height: 400px"/>
                             </div>
                             <div id="info"></div>
                         </div>
@@ -591,7 +591,7 @@
     }
     #photo{
         position: absolute;
-        top:-360px;
+        top:-260px;
         left:220px;
         border:3px solid red;
         cursor: pointer;

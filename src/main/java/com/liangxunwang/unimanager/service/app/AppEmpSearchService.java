@@ -61,6 +61,12 @@ public class AppEmpSearchService implements ListService {
         if(!StringUtil.isNullOrEmpty(query.getLikeids())){
             map.put("likeids", query.getLikeids());
         }
+        if(!StringUtil.isNullOrEmpty(query.getProvinceid())){
+            map.put("provinceid", query.getProvinceid());
+        }
+        if(!StringUtil.isNullOrEmpty(query.getCityid())){
+            map.put("cityid", query.getCityid());
+        }
         map.put("state", "1");
         List<Emp> list1 = empDao.listsSearch(map);
         map.put("state", "2");
